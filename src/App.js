@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
+import { AddToken, Header, TokenItem } from './components';
 
 function App() {
+  const [isOpen, _isOpen] = useState(false);
+  const list = useSelector(state => state.tokenReducer.list);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App relative w-full h-full flex justify-center overflow-y-auto overflow-x-hidden p-6 pt-0'>
+      <div className='w-full max-w-3xl h-max space-y-4'>
+        {/* HEADER */}
+        <Header isOpen={() => _isOpen(true)} />
+        {
+          list.map((token, index) => (
+            <TokenItem key={index} name={token.name} />
+          ))
+        }
+      </div>
+
+      <AddToken isOpen={isOpen} onClose={() => _isOpen(false)} />
     </div>
   );
 }
