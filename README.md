@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+# 2FA Responsive WebApp (React JS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prerequisite
+
+- node version : I used v18.13.0
+
+<br />
+
+## How To Run
+
+- Clone repository and install dependencies:
+
+  ```bash
+  $ git clone git@github.com:AsimSheikh786/2FA-Responsive-WebApp.git
+  $ cd 2FA-Responsive-WebApp
+  $ npm i
+  or
+  $ yarn install
+  or
+  npm i --force
+  ```
+
+- Run application
+  ```bash
+  $ npm start
+  ```
+
+<br />
 
 ## Available Scripts
 

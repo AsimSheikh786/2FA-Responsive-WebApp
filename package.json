@@ -1,6 +1,6 @@
 {
-  "name": "alpha-mu-test",
-  "version": "0.1.0",
+  "name": "2fa-responsive-webapp",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.15",
