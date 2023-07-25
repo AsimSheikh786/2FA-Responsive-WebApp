@@ -1,14 +1,23 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import React, { memo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../actions";
 
 const AddToken = (props) => {
+    const dispatch = useDispatch();
+
     const [form, _form] = useState({
         name: '',
-        order: null
+        order: ''
     });
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(form);
 
+        if(form.name === '') return;
+
+        dispatch(addToken(form));
+        _form(old => ({ ...old, name: '', order: '' }));
         console.log(form);
         props.onClose();
       };
@@ -33,6 +42,7 @@ const AddToken = (props) => {
                             type='text'
                             placeholder="Enter title"
                             required
+                            value={form.name}
                             onChange={(e) => _form({ ...form, name: e.target.value })}
                             className="appearance-none w-full bg-white focus:outline-none border border-gray-200 focus:border-blue-500 rounded-lg p-2"
                         />
@@ -44,6 +54,7 @@ const AddToken = (props) => {
                         <input
                             type='number'
                             placeholder="Enter order"
+                            value={form.order}
                             onChange={(e) => _form({ ...form, order: parseInt(e.target.value) })}
                             className="appearance-none w-full bg-white focus:outline-none border border-gray-200 focus:border-blue-500 rounded-lg p-2"
                         />

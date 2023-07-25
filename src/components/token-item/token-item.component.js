@@ -28,7 +28,7 @@ const TokenItem = (props) => {
                 </div>
                 {/* name & token number */}
                 <div>
-                    <h2 className="text-gray-900 text-xs sm:text-sm">{props.name}</h2>
+                    <h2 className="text-gray-900 text-xs sm:text-sm capitalize">{props.name}</h2>
                     <p className="text-gray-500 text-3xl leading-none tracking-widest">{token}</p>
                 </div>
             </div>

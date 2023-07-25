@@ -3,7 +3,8 @@ export const addToken = (data) => {
         type: "ADD_TOKEN",
         payload: {
             id: new Date().getTime().toString(),
-            data: data
+            name: data.name,
+            order: data.order
         }
     }
 }
