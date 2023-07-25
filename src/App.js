@@ -12,6 +12,8 @@ function App() {
       <div className='w-full max-w-3xl h-max space-y-4'>
         {/* HEADER */}
         <Header isOpen={() => _isOpen(true)} />
+
+        {/* TOKEN LIST */}
         {
           list.map((token, index) => (
             <TokenItem key={index} name={token.name} />
@@ -19,6 +21,7 @@ function App() {
         }
       </div>
 
+      {/* ADD NEW TOKEN FORM */}
       <AddToken isOpen={isOpen} onClose={() => _isOpen(false)} />
     </div>
   );

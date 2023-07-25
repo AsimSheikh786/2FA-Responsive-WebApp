@@ -10,6 +10,7 @@ const AddToken = (props) => {
         name: '',
         order: ''
     });
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(form);
@@ -60,7 +61,7 @@ const AddToken = (props) => {
                         />
                     </div>
 
-                    {/* submit */}
+                    {/* submit button */}
                     <input type='submit' className="appearance-none w-full bg-blue-500 hover:bg-blue-600 text-white focus:outline-none rounded-full cursor-pointer p-2" value='Submit' />
                 </form>
             </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 
 const RadialCounter = (props) => {
@@ -20,6 +20,7 @@ const RadialCounter = (props) => {
 
     return (
         <div className='relative'>
+            {/* circular range */}
             <svg style={{ width: props.radius * 2.4, height: props.radius * 2.4 }}>
                 <circle
                     className='text-gray-200'
@@ -43,6 +44,8 @@ const RadialCounter = (props) => {
                     cy={props.radius * 1.2}
                 />
             </svg>
+
+            {/* counter number */}
             <div className='absolute inset-0 w-full h-full flex items-center justify-center'>
                 <p className='text-gray-primary font-normal leading-none' style={{ fontSize: `${props.fontSize}px` }}>{increment}</p>
             </div>
@@ -63,4 +66,4 @@ RadialCounter.defaultProps = {
     percent: 0
 };
 
-export default React.memo(RadialCounter);
+export default memo(RadialCounter);

@@ -34,9 +34,7 @@ const TokenItem = (props) => {
             </div>
 
             {/* counter */}
-            <div>
-                <RadialCounter changeToken={handelToken}/>
-            </div>
+            <RadialCounter changeToken={handelToken}/>
         </div>
     );
 };

@@ -24,13 +24,7 @@ const tokenReducer = (state = initialState, action) => {
             
             state.list.splice(order, 0, {id: id, name: name});
             const updatedAddToken = state.list;
-            // const updatedAddToken = [
-            //     ...state.list,
-            //     {
-            //         id: id,
-            //         name: data
-            //     }
-            // ]
+
             localStorage.setItem('myTokenData', JSON.stringify(updatedAddToken));
 
             return {
