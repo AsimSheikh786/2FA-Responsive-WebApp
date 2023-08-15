@@ -2,11 +2,11 @@ import React, { memo, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 
 const RadialCounter = (props) => {
-    const [increment, setIncrement] = useState(59);
+    const [increment, setIncrement] = useState(new Date().getSeconds() - 60);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setIncrement(old => (old === 0 ? 59 : old - 1));
+            setIncrement(new Date().getSeconds() - 60);
         }, 1000);
 
         return () => clearInterval(interval);
@@ -32,7 +32,7 @@ const RadialCounter = (props) => {
                     cy={props.radius * 1.2}
                 />
                 <circle
-                    style={{ color: increment >= 25 ? '#22c55e' : increment < 10 ? '#ef4444' : '#eab308' }}
+                    style={{ color: Math.abs(increment).toString() >= 25 ? '#22c55e' : Math.abs(increment).toString() < 10 ? '#ef4444' : '#eab308' }}
                     strokeWidth='3'
                     strokeDasharray={2 * Math.PI * props.radius}
                     strokeDashoffset={(2 * Math.PI * props.radius) - increment / 59 * (2 * Math.PI * props.radius)}
@@ -47,7 +47,7 @@ const RadialCounter = (props) => {
 
             {/* counter number */}
             <div className='absolute inset-0 w-full h-full flex items-center justify-center'>
-                <p className='text-gray-primary font-normal leading-none' style={{ fontSize: `${props.fontSize}px` }}>{increment}</p>
+                <p className='text-gray-primary font-normal leading-none' style={{ fontSize: `${props.fontSize}px` }}>{Math.abs(increment).toString()}</p>
             </div>
         </div>
     );
